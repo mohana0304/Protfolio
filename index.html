@@ -3,84 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohanapriya | Portfolio</title>
+  <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <style>
+    #resume { display: none; }
+    #resume.active { display: block; }
+  </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <div class="logo">🌌 Mohanapriya</div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <h1>Hello, I'm <span>Mohanapriya</span> 👩‍💻</h1>
-    <p>MCA Student | Java & Web Developer | AI Enthusiast</p>
-    <a href="#projects" class="btn">🚀 Explore My Work</a>
+  <!-- Header -->
+  <header>
+    <h1>MOHANAPRIYA K</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#resume" onclick="toggleResume()">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <!-- About -->
+  <!-- About Section -->
   <section id="about">
-    <h2>About Me</h2>
+    <h2>👋 About Me</h2>
     <p>
-      I am passionate about building <strong>web applications</strong> using
-      Java, Spring Boot, React, and AI. I also enjoy exploring cloud & DevOps tools
-      like Docker, Kubernetes, Prometheus, and Grafana.
+      Hi, I'm <b>Your Name</b>, a passionate web developer who loves creating modern and interactive websites.  
+      I enjoy working with <span class="highlight">Java, React, and Spring Boot</span>.
     </p>
   </section>
 
-  <!-- Skills -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill">Java ☕</div>
-      <div class="skill">Spring Boot 🌱</div>
-      <div class="skill">React ⚛️</div>
-      <div class="skill">MongoDB 🍃</div>
-      <div class="skill">Python 🐍</div>
-      <div class="skill">Docker 🐳</div>
-      <div class="skill">Kubernetes ☸️</div>
-      <div class="skill">Prometheus 📊</div>
-    </div>
-  </section>
-
-  <!-- Projects -->
+  <!-- Projects Section -->
   <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <h3>Custom Costume Web App</h3>
-        <p>Spring Boot + React + MongoDB app for outfit customization and shopping.</p>
-      </div>
-      <div class="project-card">
-        <h3>Finance Tracking System</h3>
-        <p>Flutter + Firebase app for expense tracking and group collaboration.</p>
-      </div>
-      <div class="project-card">
-        <h3>CI/CD Static Website</h3>
-        <p>Automated pipeline with Jenkins, Docker, and Kubernetes.</p>
-      </div>
+    <h2>🚀 Projects</h2>
+    <div class="project-card">
+      <h3>Custom Costume</h3>
+      <p>A web app that recommends outfits based on themes, skin tone, and body shape.</p>
+    </div>
+    <div class="project-card">
+      <h3>Finance Tracker</h3>
+      <p>Personal + group finance tracking system with budget planning and bill reminders.</p>
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- Resume Section -->
+  <section id="resume">
+    <h2>📄 My Resume</h2>
+    <iframe src="https://drive.google.com/file/d/1aUWYqxo8kh9rsQW3xd_WGc4QB3HI2pAs/preview" width="80%" height="600px" allow="autoplay"></iframe>
+    <br>
+    <a href="https://drive.google.com/uc?export=download&id=1aUWYqxo8kh9rsQW3xd_WGc4QB3HI2pAs" download class="resume-btn">⬇️ Download Resume</a>
+  </section>
+
+  <!-- Contact Section -->
   <section id="contact">
-    <h2>Contact</h2>
-    <p>📧 Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
-    <p>🔗 GitHub: <a href="https://github.com/mohana0304" target="_blank">github.com/mohana0304</a></p>
-    <p>💼 LinkedIn: <a href="https://linkedin.com/in/username" target="_blank">linkedin.com/in/username</a></p>
+    <h2>📬 Contact</h2>
+    <p>Email: <a href="mailto:yourmail@example.com">yourmail@example.com</a></p>
+    <p>GitHub: <a href="https://github.com/yourusername" target="_blank">@yourusername</a></p>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>✨ © 2025 Mohanapriya | Designed in a Galaxy Theme 🚀</p>
+    <p>© 2025 Your Name | Made with 💜 in Dark Theme</p>
   </footer>
+
+  <script>
+    function toggleResume() {
+      const resumeSection = document.getElementById('resume');
+      resumeSection.classList.toggle('active');
+    }
+  </script>
+
 </body>
 </html>
