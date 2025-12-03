@@ -29,7 +29,5 @@ https://mohana0304.github.io/Protfolio/
 - **JavaScript**
 - **GitHub Pages**
 
----
 
-## 📂 Project Structure
 
