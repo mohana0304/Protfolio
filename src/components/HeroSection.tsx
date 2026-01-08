@@ -3,7 +3,7 @@ import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Button } from './ui/button';
 
-const roles = ['Frontend Fairy', 'UI Sculptor', 'Knowledge Explorer'];
+const roles = ['Flutter Specialist', 'UI Developer', 'Full-Stack Developer','AI Integration Developer'];
 
 const HeroSection = () => {
   const [currentRole, setCurrentRole] = useState(0);
@@ -49,8 +49,8 @@ const HeroSection = () => {
             >
               I'm{' '}
               <span className="font-display">
-                <span className="text-primary">Mohana</span>{' '}
-                <span className="gradient-text">Priya</span>
+                <span className="text-primary">MohanaPriya</span>{' '}
+                
               </span>
             </motion.h1>
 

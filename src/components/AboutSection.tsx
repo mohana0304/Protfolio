@@ -52,18 +52,17 @@ const AboutSection = () => {
               I'm Mohanapriya K
             </h3>
             <p className="text-primary font-medium text-lg">
-              🦋 Frontend Fairy | 🌼 UI Sculptor | 🔮 Knowledge Explorer
+              Flutter Specialist | UI Developer | Full-Stack Developer | AI Integration Developer
             </p>
             
             <p className="text-muted-foreground leading-relaxed">
-              I'm a creative developer who believes tech can be soft, sweet, and sparkly — just like your favorite plush toy! 
-              I design like I'm painting butterflies and love creating magical UIs that guide users like fairy lights.
+              I am a passionate Software Developer currently pursuing my Master’s in Computer Applications, with a strong interest in building efficient, user-centric web and mobile applications. 
+              I have hands-on experience working with React, Flutter, Firebase, Java, C, MongoDB, and MySQL, and I enjoy transforming ideas into practical digital solutions through clean design and structured code.
             </p>
             
             <p className="text-muted-foreground leading-relaxed">
-              Currently exploring the enchanting world of frontend development with React and Flutter, 
-              while also dabbling in backend magic with Node.js and Firebase. My goal is to build dreamy apps 
-              that create delight and sprinkle joy into every interaction.
+              I have developed projects some projects which helped me strengthen my problem-solving and development skills. 
+              I am a continuous learner who enjoys exploring new technologies and collaborating with teams to build innovative applications that create real-world impact.
             </p>
 
             <div className="flex flex-col gap-3">

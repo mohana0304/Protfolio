@@ -1,6 +1,7 @@
-import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink, Github, X } from 'lucide-react';
 import { Button } from './ui/button';
+import { useState } from 'react';
 
 const projects = [
   {
@@ -48,6 +49,8 @@ const projects = [
 ];
 
 const ProjectsSection = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <section id="projects" className="section-padding bg-muted/30 relative">
       <div className="container mx-auto px-6">
@@ -75,57 +78,92 @@ const ProjectsSection = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -8 }}
-              className="glass-card rounded-2xl overflow-hidden group relative h-[320px]"
+              onHoverStart={() => setHoveredIndex(index)}
+              onHoverEnd={() => setHoveredIndex(null)}
+              className="glass-card rounded-2xl overflow-hidden group relative h-[320px] cursor-pointer"
             >
-              {/* Background Image */}
+              {/* Background Image - darker when hovered */}
               <img
                 src={project.image}
                 alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
+                  hoveredIndex === index ? 'scale-105 brightness-50' : ''
+                }`}
               />
               
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/60 to-transparent" />
-              
-              {/* Dark overlay that intensifies on hover */}
-              <div className="absolute inset-0 bg-background/30 transition-all duration-500 group-hover:bg-background/80" />
-              
-              {/* Content */}
-              <div className="relative h-full flex flex-col p-6 transition-all duration-500 group-hover:justify-start">
-                {/* Title - always visible */}
-                <h3 className="text-xl font-bold text-foreground mb-2 transition-all duration-500 group-hover:mb-4">
+              {/* Main content - always visible */}
+              <div className="relative h-full flex flex-col justify-end p-6">
+                <h3 className="text-xl font-bold text-white mb-2 drop-shadow-lg">
                   {project.title}
                 </h3>
                 
-                {/* Description - expands on hover */}
-                <div className="flex-1 overflow-hidden">
-                  <p className="text-sm text-muted-foreground leading-relaxed transition-all duration-500 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40">
-                    {project.description}
-                  </p>
-                </div>
-                
-                {/* Tags - slide up on hover */}
-                <div className="flex flex-wrap gap-2 transition-transform duration-500 translate-y-6 group-hover:translate-y-0">
-                  {project.tags.map((tag) => (
+                {/* Tags - always visible */}
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 bg-secondary/50 text-secondary-foreground text-xs rounded-full backdrop-blur-sm"
+                      className="px-3 py-1 bg-white/20 text-white text-xs rounded-full backdrop-blur-sm"
                     >
                       {tag}
                     </span>
                   ))}
-                </div>
-
-                {/* Button - appears on hover */}
-                <div className="mt-4 transition-all duration-500 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
-                  <Button asChild size="sm" variant="outline" className="rounded-full w-full">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github size={16} className="mr-2" />
-                      View Code
-                    </a>
-                  </Button>
+                  {project.tags.length > 3 && (
+                    <span className="px-3 py-1 bg-white/10 text-white/80 text-xs rounded-full">
+                      +{project.tags.length - 3}
+                    </span>
+                  )}
                 </div>
               </div>
+              
+              {/* White details overlay on hover */}
+              <AnimatePresence>
+                {hoveredIndex === index && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 bg-white dark:bg-gray-900 rounded-2xl p-6 flex flex-col shadow-2xl"
+                  >
+                    {/* Close indicator (optional) */}
+                    <div className="flex justify-end mb-4">
+                      <div className="w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+                        <X size={12} className="text-gray-600 dark:text-gray-400" />
+                      </div>
+                    </div>
+                    
+                    {/* Project title */}
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                      {project.title}
+                    </h3>
+                    
+                    {/* Project description */}
+                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed flex-1 mb-4">
+                      {project.description}
+                    </p>
+                    
+                    {/* All tags */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-foreground text-xs rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    {/* Action button */}
+                    <Button asChild size="sm" className="rounded-full bg-primary hover:bg-primary/90 text-white">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <Github size={16} className="mr-2" />
+                        View on GitHub
+                      </a>
+                    </Button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           ))}
         </div>
@@ -137,7 +175,7 @@ const ProjectsSection = () => {
           transition={{ delay: 0.6 }}
           className="text-center mt-16"
         >
-          <Button asChild variant="outline" className="rounded-full px-8 py-6">
+          <Button asChild variant="outline" className="rounded-full px-8 py-6 border-primary text-primary hover:bg-primary/10">
             <a href="https://github.com/mohana0304?tab=repositories" target="_blank" rel="noopener noreferrer">
               <ExternalLink size={18} className="mr-2" />
               View All Projects on GitHub
