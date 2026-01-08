@@ -1,27 +1,23 @@
 # 🌐 Mohana Priya — Portfolio Website
 
-This repository contains the source code for my personal portfolio website, showcasing my skills, projects, education, and experience.
+This repository contains the source code for my personal portfolio website, showcasing my skills, projects, education, and experience as a software developer.
 
 🔗 **Live Website:**  
-https://mohana0304.github.io/Protfolio/
+https://protfolio-kappa-vert.vercel.app/
 
 ---
 
 ## 🚀 Features
 
 - Fully responsive personal portfolio  
-- Modern and clean UI  
+- Modern, clean, and minimal UI  
 - Sections included:
   - About Me  
   - Skills  
   - Projects  
   - Resume  
   - Contact  
-- Smooth animations  
-- Mobile-friendly design
+- Smooth animations and interactions  
+- Mobile-friendly and cross-device compatible  
 
 ---
-
-
-
-
